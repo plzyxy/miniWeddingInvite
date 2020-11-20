@@ -1,0 +1,73 @@
+<!--pages/pics/pics.wxml-->
+<loading loadingState="{{loadingState}}" bindreload="reload" wx:if="{{loadingState != 1}}"></loading>
+<view wx:else class='pageStyle'>
+  <view class="haibao">
+    <swiper indicator-dots="true" indicator-color='#FFC0CB' indicator-active-color='#d4237a' autoplay='false'
+      circular='true' interval='5000' duration='500'>
+      <block wx:for="{{pageData.banner}}">
+        <swiper-item>
+          <image class='imageBener' src="{{item.imageurl}}" id='{{item.imagetype}}' bindtap='bannerimageClick'
+            mode='widthFix'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="banneredit" bindtap="toggleDialog">
+    <view class="t-icon iconteddy-bear" wx:if="{{isShowEdit}}"> </view>
+
+  </view>
+  <view class="login"   wx:if="{{!isLogin}}">
+    <button class="t-icon iconcar"  open-type="getUserInfo" 
+       bindgetuserinfo="onGetUserInfo" ></button> 
+  </view>
+  <block wx:for="{{pageData.imagetypelist}}">
+    <view class='listStyle' bindtap='listimageClick' id='{{item.imagetype}}'>
+      <view class='rowView'>
+        <view style="padding:20rpx" wx:if="{{isShowEdit}}" catchtap="editImage" id='{{item.imagetype}}'>编辑</view>
+        <view class='title'>{{item.typename}}</view>
+        <view class='moreView'>查看更多></view>
+      </view>
+      <image class='imageItem' src="{{item.imageurl}}" mode='widthFix'></image>
+    </view>
+  </block>
+  <view class='bottomView'></view>
+
+  <view wx:if="{{isPlayingMusic}}">
+    <view class="musicView" bindtap="play">
+      <image src="../../static/images/music_icon.png" class="musicImg music_icon" />
+      <image src="../../static/images/music_play.png" class="music_play pauseImg" />
+    </view>
+  </view>
+  <view wx:else>
+    <view class="musicView" bindtap="play">
+      <image src="../../static/images/music_icon.png" class="musicImg" />
+      <image src="../../static/images/music_play.png" class="music_play playImg" />
+    </view>
+  </view>
+
+
+
+
+  <xm-ad wx:if="{{isShowAd}}" data-id="xmac2437a27e4d738c04201db56ef86f" adData="{{adData}}"
+    class="xmac2437a27e4d738c04201db56ef86f" size="small" bindadLoad="adLoad" bindadClick="adClick"
+    bindadClose="adClose"></xm-ad>
+
+
+
+</view>
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
+  <view class="zan-dialog__mask" bindtap="toggleDialog" />
+  <view class="zan-dialog__container">
+    <view style='padding:36rpx;' class="edit-item-image-wrapper">
+      <block wx:for="{{pageData.banner}}">
+        <view>
+          <image class="edit-item-image" src="{{item.imageurl}}" id='{{item.imagetype}}' mode='aspectFit'
+            catchtap="editBannerItem"></image>
+        </view>
+      </block>
+    </view>
+    <view class="update-tips"> 点击图片更换</view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<!-- banner -->
+<view wx:if="{{adData[adID].adType===1}}" >
+  <view wx:if="{{adData[adID].hasshow}}" style="{{adData[adID].style.wrap}}">
+    <image src="{{adData[adID].adImage}}" mode="widthFix" bindtap="AdClickEvent" bindload="AdLoadEvent" style="{{adData[adID].style.img}}"></image>
+    <text wx:if="{{adData[adID].isShowIcon}}" style="{{adData[adID].style.icon}}">小盟广告</text>
+  </view>
+</view>
+<!-- 插屏 -->
+<view wx:if="{{adData[adID].adType===2}}" >
+  <view wx:if="{{adData[adID].hasshow}}" style="{{adData[adID].style.wrap}}">
+    <view style="{{adData[adID].style.content}}">
+      <image src="{{adData[adID].adImage}}" mode="widthFix" style="{{adData[adID].style.img}}"
+             bindload="AdLoadEvent" bindtap="AdClickEvent"></image>
+      <image src="http://www.xmadx.com/sdk/ad_sdk_clone.png" data-xmId="{{adData[adID].xmId}}" data-closeid="{{adID}}"
+             bindtap="AdCloseEvent" style="{{adData[adID].style.close}}"></image>
+      <text wx:if="{{adData[adID].isShowIcon}}" style="{{adData[adID].style.icon}}">小盟广告</text>
+    </view>
+  </view>
+</view>
+<!-- 悬浮 -->
+<view wx:if="{{adData[adID].adType===3}}" >
+  <view wx:if="{{adData[adID].hasshow}}" class="xmad-wrap" style="{{adData[adID].style.wrap}}">
+    <image src="{{adData[adID].adImage}}" mode="widthFix" bindload="AdLoadEvent" bindtap="AdClickEvent"
+           style="{{adData[adID].style.img}}"></image>
+  </view>
+</view>

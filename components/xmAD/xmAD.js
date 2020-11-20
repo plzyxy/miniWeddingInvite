@@ -1,0 +1,1 @@
+Component({xmad:!0});

@@ -1,0 +1,31 @@
+<!--pages/piclist/piclist.wxml-->
+<loading loadingState="{{loadingState}}" bindreload="reload" wx:if="{{loadingState != 1}}"></loading>
+<view wx:else class='pageStyle'>
+  <block wx:for="{{pagerList}}">
+    <view class='imagestyle' bindtap='lookbigPic' id='{{index}}' >
+      <image class='imageView' style='margin-top: {{index>0?0:20}}rpx;' src='{{item.imageurl}}' mode='widthFix'></image>
+      <view class='tipLookBigPic'>点击看大图</view>
+      <view wx:if="{{isShowEdit}}" class="v-edit" catchtap="toggleDialog"id='{{index}}' >编辑</view>
+    </view>
+    <view class='imagecontent'>{{item.imagecontent}}</view>
+  </block>
+
+  <i-load-more wx:if="{{isloadmore}}" loading="{{isloadmore}}" />
+</view>
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
+  <view class="zan-dialog__mask" bindtap="toggleDialog" />
+  <view class="zan-dialog__container">
+    <view style='padding:36rpx;' class="edit-item-image-wrapper">
+        <view>
+          <image class="edit-item-image" src="{{imageValue}}" id='{{pagerList[c_index].imagetype}}' mode='aspectFit'
+            catchtap="editImageItem"></image>
+        </view>
+        <view class="v-edit-name"><textarea  placeholder="请输入描述" value='{{inputValue}}' class="send_ipt" bindinput="bindKeyInput" maxlength='68'
+           /> </view>
+        <view class="update-commit">  <view class="v-btn" catchtap="uploadImagetoCloud"> 提交</view> </view>
+        <view class="update-commit">  <view class="v-btn-cancel" catchtap="cancel"> 取消</view> </view>
+    </view>
+   
+  </view>
+</view>

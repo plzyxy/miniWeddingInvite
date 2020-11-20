@@ -1,0 +1,112 @@
+/* pages/piclist/piclist.wxss */
+
+.pageStyle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+}
+
+.imagestyle {
+  width: calc(100% - 50rpx);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.imageView {
+  width: 700rpx;
+  height: auto;
+  min-height: 375rpx;
+  background-color: #f5f5f5;
+  border-radius: 10rpx;
+}
+
+.tipLookBigPic {
+  font-size: 14px;
+  width: calc(100% - 50rpx);
+  padding: 20rpx;
+  background-color: #32323250;
+  color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+.v-edit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  padding: 20rpx;
+  background-color: #32323250;
+  color: #fff;
+}
+
+.imagecontent {
+  width: calc(100% - 50rpx);
+  color: #d4237a;
+  font-size: 14px;
+  margin-top: 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+  padding-bottom: 20rpx;
+}
+
+.edit-item-image-wrapper {
+width: 650rpx;
+}
+.edit-item-image {
+  width: 580rpx;
+  height: 360rpx;
+align-self: center;
+margin-left: 36rpx;
+
+}
+textarea{
+  width: 580rpx;
+  height: 180rpx;
+  margin-left: 36rpx;
+}
+.zan-dialog__container {
+height: 750rpx;
+display: flex;
+flex-direction: column;
+align-items: center;
+align-content: center;
+}
+.update-tips{
+  align-self: center;
+}
+.update-commit{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.v-btn{
+ padding:10rpx;
+ width: 580rpx;
+  background-color: #ec1f86d2;
+  color: #fff;
+  border-radius: 28rpx;
+  text-align: center;
+
+}
+
+.v-btn-cancel{
+  padding:10rpx;
+  width: 580rpx;
+  margin-top: 20rpx;
+   background-color: #f6d6d6;
+   color: #FFFFFF;
+   border-radius: 28rpx;
+   text-align: center;
+
+}
+

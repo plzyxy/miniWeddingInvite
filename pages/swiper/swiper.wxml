@@ -1,0 +1,11 @@
+<!--pages/swiper/swiper.wxml-->
+<text>pages/swiper/swiper.wxml</text>
+<view class="init" animation="{{slide_up1}}">
+   <image src="https://7765-weixin-plzyxy-1e9dcf-1257652928.tcb.qcloud.la/my-image.jpeg"></image>
+</view>
+<view class="init" animation="{{slide_up2}}">
+    <image src="https://7765-weixin-plzyxy-1e9dcf-1257652928.tcb.qcloud.la/my-image.jpeg"></image>
+    
+</view>
+
+<view  catchtap="viewcontroller">  显示/隐藏 </view>

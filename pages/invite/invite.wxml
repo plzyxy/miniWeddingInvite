@@ -1,0 +1,35 @@
+<!--pages/invite/invite.wxml-->
+<loading loadingState="{{loadingState}}" bindreload="reload" wx:if="{{loadingState != 1}}"></loading>
+<view wx:else class='pageStyle'>
+  <!-- <scroll-view scroll-y="true" class="sc-view"> -->
+  <view class='inviteView'>
+    <view class='backImage'>
+      <image  src='{{pageData.backimageurl}}' mode='widthFix'></image>
+    </view>
+    <view class="tx-wrapper">
+      <text class='titlename'>【{{pageData.names}}】</text>
+      <text class='msgtext'>谨定于 {{pageData.rq1}}</text>
+      <text class='msgtext'>农历 {{pageData.rq2}} 举办婚礼</text>
+      <text class='msgtext'>地址：{{pageData.address}}</text>
+      <text class='msgtext'>恭请您的光临</text>
+    </view>
+    <button wx:if="{{isShowInvite}}" class="send_btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">接受邀请</button>
+
+
+  </view>
+<!-- </scroll-view> -->
+</view>
+
+
+<view class="zan-dialog {{ showDialog ? 'zan-dialog--show' : '' }}">
+  <!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
+  <view class="zan-dialog__mask" bindtap="toggleDialog" />
+  <view class="zan-dialog__container">
+    <view class="edit-neme-wrapper">
+     <view class="v-edit-name"><input  placeholder="您的名字" value='{{inputValue}}' class="send_ipt" bindinput="bindKeyInput" maxlength='12' />    </view>
+    </view>
+    <view class="v-btn-confirm"> 提交</view>
+    <view class="v-btn"> 取消</view>
+
+  </view>
+</view>
